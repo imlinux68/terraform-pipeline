@@ -1,14 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
+resources "aws_vpc" "my_vpc" {
+	cidr_block = "10.123.0.0/16"
+	enable_dns_hostnames = true
+	enable_dns_support = true
+	tags = {
+		Name = my_vpc"
+	}
 }
-
-# Configure the AWS Provider from off docs
-provider "aws" {
-  region = "us-west-2"
-}
-
